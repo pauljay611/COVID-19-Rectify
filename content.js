@@ -37,7 +37,6 @@ function replaceWords(textNode) {
 	const regText = Object.keys(keywordsMap).join('|')
 	const re = new RegExp(regText, 'gim')
 	textNode.nodeValue = text.replace(re, keyword => {
-		console.log(keyword)
 		return keywordsMap[keyword.toLowerCase()]
 	})
 }
