@@ -19,7 +19,6 @@ const keywordsMap = ((ch, en) => {
 		...chMap
 	}
 })(ch, en)
-console.log(keywordsMap)
 
 function traverseNode(node) {
 	if (node.nodeType === 3) {
