@@ -1,17 +1,25 @@
 const ch = ['新冠', '新型冠狀', '新型']
 const en = ['covid-19']
 
-const keywordsMap = {
-	[ch]: '中國武漢',
-	[en]: 'China Wuhan Virus'
-}
-
-function mappingKeywords() {
-	const keywordsMap = ch.reduce(key => {
-		key
+const keywordsMap = ((ch, en) => {
+	const chMap = ch.reduce((acc, val) => {
+		return {
+			...acc,
+			[val]: '中國武漢'
+		}
 	}, {})
-	return keywordsMap
-}
+	const enMap = en.reduce((acc, val) => {
+		return {
+			...acc,
+			[val]: 'China Wuhan Virus'
+		}
+	}, {})
+	return {
+		...enMap,
+		...chMap
+	}
+})(ch, en)
+console.log(keywordsMap)
 
 function traverseNode(node) {
 	if (node.nodeType === 3) {
@@ -25,7 +33,6 @@ function traverseNode(node) {
 			child = child.nextSibling
 		}
 }
-
 function replaceWords(textNode) {
 	const text = textNode.nodeValue
 	const regText = Object.keys(keywordsMap).join('|')
