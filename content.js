@@ -1,24 +1,14 @@
-const ch = ['新冠', '新型冠狀', '新型']
-const en = ['covid-19']
+let keywordsMap
+chrome.storage.sync.get(['keywordsMap'], function(result) {
+	keywordsMap = result.keywordsMap
+})
 
-const keywordsMap = ((ch, en) => {
-	const chMap = ch.reduce((acc, val) => {
-		return {
-			...acc,
-			[val]: '中國武漢'
-		}
-	}, {})
-	const enMap = en.reduce((acc, val) => {
-		return {
-			...acc,
-			[val]: 'China Wuhan Virus'
-		}
-	}, {})
-	return {
-		...enMap,
-		...chMap
-	}
-})(ch, en)
+// enhance efficiency by only changing dom while the end of node mutation
+new MutationObserver(function() {
+	traverseNode(document.body)
+}).observe(document.body, {
+	childList: true
+})
 
 function traverseNode(node) {
 	if (node.nodeType === 3) {
@@ -40,10 +30,3 @@ function replaceWords(textNode) {
 		return keywordsMap[keyword.toLowerCase()]
 	})
 }
-
-// enhance efficiency by only changing dom while the end of node mutation
-new MutationObserver(function() {
-	traverseNode(document.body)
-}).observe(document.body, {
-	childList: true
-})
