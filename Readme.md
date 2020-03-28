@@ -1,6 +1,6 @@
 # COVID-19-RECTIFY
 
-<h2 align="center">Rectify covid-19 virus from covid-19 to China Wuhan virus</h2>
+<h2 align="center">Rectify covid-19 virus from covid-19 to China Wuhan</h2>
 
 ## installation
 
