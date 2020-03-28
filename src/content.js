@@ -23,6 +23,7 @@ function traverseNode(node) {
 		}
 }
 function replaceWords(textNode) {
+	if (!keywordsMap) return
 	const text = textNode.nodeValue
 	const regText = Object.keys(keywordsMap).join('|')
 	const re = new RegExp(regText, 'gim')

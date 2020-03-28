@@ -1,0 +1,27 @@
+{
+	"name": "covid-19-rectify",
+	"version": "1.0.0",
+	"description": "<h2 align=\"center\">Rectify covid-19 virus from covid-19 to China Wuhan</h2>",
+	"main": "background.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/pauljay611/COVID-19-Rectify.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/pauljay611/COVID-19-Rectify/issues"
+	},
+	"homepage": "https://github.com/pauljay611/COVID-19-Rectify#readme",
+	"devDependencies": {
+		"webpack": "^4.42.1",
+		"webpack-cli": "^3.3.11"
+	},
+	"dependencies": {
+		"path": "^0.12.7"
+	}
+}
